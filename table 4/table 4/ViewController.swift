@@ -12,8 +12,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let names = ["harsh", "vardhan", "bro pls im sleepy"]
     let pics = [UIImage(named: "1.jpg"), UIImage(named: "2.png"), UIImage(named: "3.png")]
     
-//    var a:UIImage? = nil
-    var b = ""
+//    var a : UIImage? = nil
+//    var b: String? = ""
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +32,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         cell.labelCell.text = names[indexPath.row]
-       // cell.labelCell.text = b
+        //b = cell.labelCell.text!
         cell.imageCell.image = pics[indexPath.row]
-//        cell.imageCell.image = a
         return cell
     }
     
@@ -42,12 +42,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       if segue.destination is detailsController{
-//            let vc = segue.destination as! detailsController
-//            vc.label.text = b
-//            vc.image.image = a
-       }
-   }
+        if segue.destination is detailsController{
+            let vc = segue.destination as! detailsController
+            let indexPaths = self.tableView!.indexPathsForSelectedRows!
+            let indexPath = indexPaths[0] as NSIndexPath
+            vc.image1 = self.pics[indexPath.row]
+            vc.caption = self.names[indexPath.row]
+        }
+    }
     
 }
 

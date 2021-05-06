@@ -8,19 +8,30 @@
 import UIKit
 
 class detailsController: UIViewController {
-
+    var image1:UIImage?
+    var caption:String?
+    
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var image: UIImageView!
     
-    //var image1:UIImage? = nil
-    //var caption:String = ""
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       // label?.text = caption
-        // Do any additional setup after loading the view.
-    }
+
     
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        
+        label.text = caption
+        image.image = image1
+        
+    }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    
     /*
     // MARK: - Navigation
 
