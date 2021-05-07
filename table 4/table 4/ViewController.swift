@@ -9,12 +9,10 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let titles = ["welcome1", "welcome2", "welcome3"]
     let names = ["harsh", "vardhan", "bro pls im sleepy"]
     let pics = [UIImage(named: "1.jpg"), UIImage(named: "2.png"), UIImage(named: "3.png")]
-    
-//    var a : UIImage? = nil
-//    var b: String? = ""
-    
+
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Welcome! "
+        return "ok"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
